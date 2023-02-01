@@ -1,0 +1,74 @@
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+
+<div>
+  <img src="https://cdn-icons-png.flaticon.com/512/3702/3702999.png" class="rounded mx-auto d-block" style="height: 400px;" alt="...">
+  <br>
+  <p class="fs-1" style="font-family: 'Kanit', sans-serif;">REGALATEA</p>
+</div>
+
+<form [formGroup]="myForm" (ngSubmit)="submitFormulario()" class="shadow p-3 mb-5 bg-body-tertiary rounded">
+  <div class="mb-3">
+    <label for="userInput" class="form-label" style="font-family: 'Kanit', sans-serif;">Usuario</label>
+    <input formControlName="user" [class.is-invalid]="f.user.errors && f.user.touched" type="email" class="form-control" id="userInput" placeholder="Ingrese su Usuario">
+    <div id="userInputfeedback" class="invalid-feedback">
+      Introduzca el usuario
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="passInput" class="form-label" style="font-family: 'Kanit', sans-serif;">Contraseña</label>
+    <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password" class="form-control" id="passInput" placeholder="Ingrese su Contraseña">
+    <div id="passInputfeedback" class="invalid-feedback">
+      Introduzca la contraseña
+    </div>
+  </div>
+
+  <!-- Trigger de los Modal y Submit -->
+  <div class="mb-3">
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Aceptar</button>
+  </div>
+
+
+  <!-- Modals //POR IMPLEMENTAR// -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalUnchecked" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+
