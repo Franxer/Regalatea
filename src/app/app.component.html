@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-login *ngIf="!loginChecked()"></app-login>
+      <app-principal *ngIf="loginChecked()"></app-principal>
+    </div>
+  </div>
+</div>
+
