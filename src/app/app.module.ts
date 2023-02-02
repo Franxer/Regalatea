@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterComponent } from './layout/publico/register/register.component';
 import { UserlistComponent } from './layout/privado/userlist/userlist.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserlistComponent } from './layout/privado/userlist/userlist.component'
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    ToastrModule
+    ToastrModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
