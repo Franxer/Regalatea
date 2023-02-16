@@ -1,6 +1,5 @@
 
 .logo{
-  display: flex;
   justify-content: center;
   height: 200px;
   margin-bottom: 20px;
@@ -10,4 +9,12 @@
 
 .formulario{
   max-width: 300px;
+  text-align: center;
+}
+
+.wrapper{
+  margin: auto auto auto auto;
+  max-width: 350px;
+  position: relative;
+  background-color: peachpuff;
 }

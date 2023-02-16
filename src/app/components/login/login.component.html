@@ -1,23 +1,27 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
 <div>
-  <div class="shadow p-3 mb-5 bg-body-tertiary rounded" style="max-width: 350px; margin:20px auto auto auto">
-      <div>
-        <h1 class="fs-1" style="font-family: 'Kanit', sans-serif; text-align: center;">REGALATEA</h1>
-        <img class="logo" src="../../../assets/img/presente.png" alt="...">
-      </div>
-    <br>
-    <form class="formulario" action="" >
-      <h2 class="fs-1" style="font-family: 'Kanit', sans-serif;">Login</h2>
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" placeholder="name@example.com">
-        <label>Email address</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control"  placeholder="Password">
-        <label>Password</label>
-      </div>
-    </form>
+  <h1 class="fs-1" style="text-align: center; margin-bottom: 50px;">REGALATEA</h1>
+  <div class="wrapper">
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div>
+          <h2 style="text-align: center;">Login</h2>
+          <img class="logo" src="../../../assets/img/presente.png" alt="...">
+        </div>
+      <br>
+      <form class="formulario" action="" >
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" placeholder="name@example.com">
+          <label>Correo Electrónico</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control"  placeholder="Password">
+          <label>Contraseña</label>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary btn-lg" type="button">Ingresar</button>
+        </div>
+        <p class="mt-3">No tienes cuenta? <a routerLink="/register">Registrar</a></p>
+        <a routerLink="/recover-pass">Recuperar cuenta</a>
+      </form>
+    </div>
   </div>
 </div>
