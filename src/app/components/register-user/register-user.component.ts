@@ -1,7 +1,9 @@
+import { FirebaseCodeErrorService } from './../../services/firebase-code-error.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-user',
@@ -10,15 +12,18 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterUserComponent {
 
-  registerUser: FormGroup
+  registerUser: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private afAuth: AngularFireAuth,
-    private toastr: ToastrService){
+    private toastr: ToastrService,
+    private firebaseError: FirebaseCodeErrorService,
+    private router: Router){
     this.registerUser = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       repeatPassword: ['', Validators.required],
     })
   }
@@ -28,30 +33,27 @@ export class RegisterUserComponent {
     const password = this.registerUser.value.password;
     const repeatPassword = this.registerUser.value.repeatPassword;
 
+    if((password != repeatPassword) || (password == "")){
+      this.toastr.error("Las contraseñas no coinciden o no son válidas", "Error");
+      return;
+    }
+
     this.afAuth.createUserWithEmailAndPassword(email, password).then((user)=> {
+      this.loading = true
+
+      this.verifyEmail();
       console.log(user);
     }).catch((error) => {
       console.log(error);
-      alert(this.firebaseError(error.code));
+      this.toastr.error(this.firebaseError.printCodeError(error.code), "Error");
     })
   }
 
-  firebaseError(code:string){
-    switch(code){
-      case 'auth/email-already-exists':
-        return "El usuario ya existe";
-
-      case 'auth/invalid-email':
-        return "El email no es válido";
-
-      case 'auth/weak-password':
-        return "La contraseña es demasiado débil";
-
-      case 'auth/invalid-password':
-        return "La contraseña no es válida";
-
-      default:
-        return "Error desconocido";
-    }
+  verifyEmail(){
+    this.afAuth.currentUser.then((user) => user?.sendEmailVerification()).then(() =>{
+      this.toastr.info('Le enviamos un correo para su verificación', 'Verificar Correo');
+      this.router.navigate(['/login']);
+    });
   }
 }
+

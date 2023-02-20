@@ -17,6 +17,7 @@ import { RegisterUserComponent } from './components/register-user/register-user.
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { environment } from 'src/environments/environment';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { environment } from 'src/environments/environment';
     DashboardComponent,
     RegisterUserComponent,
     RecoverPasswordComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
