@@ -90,11 +90,20 @@
             "styles": [
               "src/styles.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css"
-
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "REGALATEA:build:production",
+            "firebaseProject": "regalatea",
+            "firebaseHostingSite": "regalatea"
           }
         }
       }

@@ -18,6 +18,10 @@ import { RecoverPasswordComponent } from './components/recover-password/recover-
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { environment } from 'src/environments/environment';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 
 
 @NgModule({
@@ -33,11 +37,15 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
+    NgModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideMessaging(() => getMessaging()),
   ],
   providers: [],
   bootstrap: [AppComponent]
