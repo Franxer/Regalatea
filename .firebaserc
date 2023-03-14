@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "regalatea": {
+      "hosting": {
+        "REGALATEA": [
+          "regalatea"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "regalatea"
+  }
+}

@@ -17,7 +17,15 @@ import { RegisterUserComponent } from './components/register-user/register-user.
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { environment } from 'src/environments/environment';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { TestComponent } from './components/test/test.component';
+import { ProfilePrivateComponent } from './components/profile/profile-private/profile-private.component';
+import { ProfilePublicComponent } from './components/profile/profile-public/profile-public.component';
 
 
 @NgModule({
@@ -28,7 +36,11 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
     RegisterUserComponent,
     RecoverPasswordComponent,
     SpinnerComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    UserListComponent,
+    TestComponent,
+    ProfilePrivateComponent,
+    ProfilePublicComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +50,10 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideMessaging(() => getMessaging()),
   ],
   providers: [],
   bootstrap: [AppComponent]
