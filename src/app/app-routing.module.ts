@@ -1,3 +1,4 @@
+
 //COMPONENTES
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
@@ -7,6 +8,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { TestComponent } from './components/test/test.component';
 import { ProfilePublicComponent } from './components/profile/profile-public/profile-public.component';
 import { ProfilePrivateComponent } from './components/profile/profile-private/profile-private.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 //MODULOS
 import { NgModule } from '@angular/core';
@@ -26,6 +28,7 @@ const routes: Routes = [
   { path: 'dashboard/profile', component: ProfilePublicComponent},
   { path: 'dashboard/profile/public', component: ProfilePublicComponent},
   { path: 'dashboard/profile/private', component: ProfilePrivateComponent},
+  { path: 'dashboard/userlist', component: UserListComponent},
   { path: '**', redirectTo: 'login', pathMatch: 'full'},
 ];
 

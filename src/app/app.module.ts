@@ -26,6 +26,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { TestComponent } from './components/test/test.component';
 import { ProfilePrivateComponent } from './components/profile/profile-private/profile-private.component';
 import { ProfilePublicComponent } from './components/profile/profile-public/profile-public.component';
+import { HeaderDashboardComponent } from './shared/header-dashboard/header-dashboard.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ProfilePublicComponent } from './components/profile/profile-public/prof
     UserListComponent,
     TestComponent,
     ProfilePrivateComponent,
-    ProfilePublicComponent
+    ProfilePublicComponent,
+    HeaderDashboardComponent
   ],
   imports: [
     BrowserModule,

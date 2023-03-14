@@ -9,17 +9,19 @@ import User from 'src/app/interfaces/User.interface';
 })
 export class TestComponent {
 
-  users: User[];
+  /* mapusers: Map<string, User> = new Map<string, User>(); */
 
-  constructor(private fms: FirestoreMethodsService){
-    this.users = [{
-      email: "test"
-    }]
-  }
+  userList: User[] = [];
+
+  constructor(private fms: FirestoreMethodsService){}
 
   ngOnInit(): void{
     //PRUEBA OBTENER TODOS LOS USUARIOS DE LA BASE DE DATOS
     this.fms.getAllUsers().subscribe(users => {
+      users.forEach((doc) => {
+        this.userList.push(doc)
+        console.log(`${doc.email} => ${doc}`);
+      })
       console.log(users);
     })
   }
