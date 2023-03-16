@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -27,6 +28,9 @@ import { TestComponent } from './components/test/test.component';
 import { ProfilePrivateComponent } from './components/profile/profile-private/profile-private.component';
 import { ProfilePublicComponent } from './components/profile/profile-public/profile-public.component';
 import { HeaderDashboardComponent } from './shared/header-dashboard/header-dashboard.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { ShopComponent } from './components/shop/shop.component';
 
 
 @NgModule({
@@ -42,11 +46,15 @@ import { HeaderDashboardComponent } from './shared/header-dashboard/header-dashb
     TestComponent,
     ProfilePrivateComponent,
     ProfilePublicComponent,
-    HeaderDashboardComponent
+    HeaderDashboardComponent,
+    SettingsComponent,
+    WishlistComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     NgbModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
